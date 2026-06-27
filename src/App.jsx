@@ -96,6 +96,7 @@ export default function App() {
     try { return localStorage.getItem("familySetupDone") !== "true"; } catch { return true; }
   });
   const [showFamilyEdit, setShowFamilyEdit] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [mode, setMode] = useState("home");
   const [selected, setSelected] = useState(null);
   const [result, setResult] = useState(null);
@@ -853,6 +854,35 @@ export default function App() {
             <p style={s.footerSub}>
               ※ AIが提案するメニューは参考情報です。食材のアレルギーや体調に合わせてご利用ください。
             </p>
+            <p style={s.footerBeta}>
+              🌸 現在β版無料公開中！正式リリース後は月額制を予定しています。
+            </p>
+            <button style={s.aboutBtn} onClick={() => setShowAbout(true)}>
+              💌 このアプリについて
+            </button>
+          </div>
+        )}
+
+        {/* このアプリについてモーダル */}
+        {showAbout && (
+          <div style={s.modalOverlay} onClick={() => setShowAbout(false)}>
+            <div style={{...s.modalBox, maxHeight:"80vh", overflowY:"auto"}} onClick={e => e.stopPropagation()}>
+              <div style={{fontSize:28, textAlign:"center", marginBottom:8}}>💌</div>
+              <div style={s.modalTitle}>このアプリについて</div>
+              <div style={s.aboutText}>
+                <p>夫婦でフルタイムの共働きの中、へとへとに疲れている状態で帰宅すると、ちびっこ怪獣のお腹空いた攻撃にあい、疲労で頭も働かなくて、夕食のメニューを考えるのがとても苦痛でした。</p>
+                <p>自他ともに認めるズボラな私。なーにもしたくないけど、毎日素うどんを夕食に出すわけにもいかず・・・</p>
+                <p>そんな時に、自分に変わってレシピを考えてくれるものがあればなぁ〜と思いつき、このアプリを作り始めました。</p>
+                <p>子供が保育園・学校で栄養バランスの取れた給食を食べてくれているなら、おうちご飯が、たまには雑でいいじゃないか！ママの気力・夕食提供までのスピードを考慮して、ズボラでもご飯が食べれて、子供達が元気ならそれでOK！！</p>
+                <p>私と同じように、体力を限界まで削っても頑張って、ご飯を作っている全ママへ、ママ自身の保守のため、たまにはいっか！ってなれるくらい余裕を持ってほしい一心です。</p>
+                <p style={{fontWeight:700, color:"#7a4a2a"}}>ママの笑顔なくして、家庭円満は成り立たない。</p>
+                <p>私はそう思っています。</p>
+                <p>少しでも、皆さんのお力になれると嬉しいです。</p>
+                <p style={{color:"#b89070", fontSize:13}}>ただ、AI考案のレシピです。レシピ数にも限界が来ますw それを考慮の上、使っていただけますと幸いです。</p>
+                <p style={{fontWeight:700, color:"#d4788a"}}>毎日頑張っているママのお守りのようなものになれば嬉しいです。🌸</p>
+              </div>
+              <button style={s.modalBtn} onClick={() => setShowAbout(false)}>閉じる</button>
+            </div>
           </div>
         )}
       </div>
@@ -974,6 +1004,9 @@ const s = {
   footerHeart: { fontSize:16, fontWeight:700, color:"#c49a20", marginBottom:10, textAlign:"center" },
   footerText: { fontSize:15, fontWeight:700, color:"#b89070", lineHeight:1.8, marginBottom:8, textAlign:"center" },
   footerSub: { fontSize:15, fontWeight:700, color:"#e05050", lineHeight:1.8, textAlign:"center" },
+  footerBeta: { fontSize:13, color:"#d4788a", textAlign:"center", marginTop:8, fontWeight:700 },
+  aboutBtn: { display:"block", margin:"12px auto 0", padding:"10px 24px", background:"#fff0f5", border:"1.5px solid #f5c4d8", color:"#d4788a", fontSize:14, fontWeight:700, borderRadius:20, cursor:"pointer", fontFamily:"'Zen Maru Gothic',sans-serif" },
+  aboutText: { fontSize:14, color:"#7a4a2a", lineHeight:2, display:"flex", flexDirection:"column", gap:12, marginBottom:16 },
   errorBox: { textAlign:"center", color:"#b89070", padding:"30px 0", display:"flex", flexDirection:"column", gap:12, alignItems:"center" },
   // 家族設定
   modalOverlay: { position:"fixed", inset:0, background:"rgba(0,0,0,0.4)", display:"flex", alignItems:"center", justifyContent:"center", zIndex:100, padding:"20px" },

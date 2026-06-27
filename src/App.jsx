@@ -388,6 +388,11 @@ export default function App() {
       <div style={s.container}>
 
         {/* Header */}
+        {/* β版告知バナー */}
+        <div style={s.betaBanner}>
+          🌸 現在β版無料公開中！正式リリース後は月額制を予定しています。
+        </div>
+
         <div style={s.header}>
           <div style={s.speechBubble}>💬 AIに夕飯、丸投げしてみる？</div>
           {mode === "home" && <><h1 style={s.title}>HP0.1飯</h1><p style={s.appSubtitle}>限界ママ😮‍💨 vs 体力お化けキッズ😆</p><p style={s.subtitle}>疲れ具合で選ぶ？冷蔵庫ガチャ引く？</p></>}
@@ -854,9 +859,6 @@ export default function App() {
             <p style={s.footerSub}>
               ※ AIが提案するメニューは参考情報です。食材のアレルギーや体調に合わせてご利用ください。
             </p>
-            <p style={s.footerBeta}>
-              🌸 現在β版無料公開中！正式リリース後は月額制を予定しています。
-            </p>
             <button style={s.aboutBtn} onClick={() => setShowAbout(true)}>
               💌 このアプリについて
             </button>
@@ -1005,6 +1007,7 @@ const s = {
   footerText: { fontSize:15, fontWeight:700, color:"#b89070", lineHeight:1.8, marginBottom:8, textAlign:"center" },
   footerSub: { fontSize:15, fontWeight:700, color:"#e05050", lineHeight:1.8, textAlign:"center" },
   footerBeta: { fontSize:13, color:"#d4788a", textAlign:"center", marginTop:8, fontWeight:700 },
+  betaBanner: { background:"#fff0f5", border:"1.5px solid #f5c4d8", borderRadius:14, padding:"10px 16px", textAlign:"center", fontSize:13, fontWeight:700, color:"#d4788a", marginBottom:12, animation:"fadeUp 0.4s ease both" },
   aboutBtn: { display:"block", margin:"12px auto 0", padding:"10px 24px", background:"#fff0f5", border:"1.5px solid #f5c4d8", color:"#d4788a", fontSize:14, fontWeight:700, borderRadius:20, cursor:"pointer", fontFamily:"'Zen Maru Gothic',sans-serif" },
   aboutText: { fontSize:14, color:"#7a4a2a", lineHeight:2, display:"flex", flexDirection:"column", gap:12, marginBottom:16 },
   errorBox: { textAlign:"center", color:"#b89070", padding:"30px 0", display:"flex", flexDirection:"column", gap:12, alignItems:"center" },

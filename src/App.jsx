@@ -554,6 +554,9 @@ export default function App() {
           )}
 
           <div style={s.homeDivider}><span style={s.homeDividerText}>今日の夕食を選ぶ</span></div>
+          <div style={{fontSize:11, color:"#b08a96", textAlign:"center", marginTop:-8, marginBottom:12}}>
+            ※レシピにある子供の反応😍😋を選ぶと「リピ確定メシ」に保存されるよ
+          </div>
           <div style={s.modeGrid}>
             <button style={s.modeCard} onClick={() => setMode("fatigue")} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.03)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
               <span style={s.modeEmoji}>😩</span>
